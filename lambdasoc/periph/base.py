@@ -118,7 +118,7 @@ class Peripheral:
                             .format(irq))
         self._irq = irq
 
-    def csr_bank(self, *, name=None, addr=None, alignment=None):
+    def csr_bank(self, *, name=None, addr=None, alignment=None, desc=None):
         """Request a CSR bank.
 
         Arguments
@@ -132,6 +132,8 @@ class Peripheral:
         alignment : int or None
             Alignment of the bank. If not specified, the bridge alignment is used.
             See :class:`amaranth_soc.csr.Multiplexer` for details.
+        desc: (str, optional):
+            Documentation of the given CSR bank.
 
         Return value
         ------------
@@ -156,7 +158,7 @@ class Peripheral:
         self._windows.append((window, addr, sparse))
         return window
 
-    def event(self, *, mode="level", name=None, src_loc_at=0):
+    def event(self, *, mode="level", name=None, src_loc_at=0, desc=None):
         """Request an event source.
 
         See :class:`EventSource` for details.
@@ -228,7 +230,7 @@ class CSRBank:
         self.name      = name
         self._csr_regs = []
 
-    def csr(self, width, access, *, addr=None, alignment=None, name=None,
+    def csr(self, width, access, *, addr=None, alignment=None, name=None, desc=None,
             src_loc_at=0):
         """Request a CSR register.
 
@@ -245,6 +247,9 @@ class CSRBank:
         name : str
             Name of the register. If ``None`` (default) the name is inferred from the variable
             name this register is assigned to.
+        desc: str
+            Documentation for the provided register, if available.
+            Used to capture register documentation automatically.
 
         Return value
         ------------
