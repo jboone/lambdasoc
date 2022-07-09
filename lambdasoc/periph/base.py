@@ -155,6 +155,9 @@ class Peripheral:
         """
         window = wishbone.Interface(addr_width=addr_width, data_width=data_width,
                                     granularity=granularity, features=features, name=name)
+        granularity_bits = log2_int(data_width // window.granularity)
+        window.memory_map = MemoryMap(addr_width=addr_width + granularity_bits,
+                                      data_width=window.granularity, alignment=alignment)
         self._windows.append((window, addr, sparse))
         return window
 
