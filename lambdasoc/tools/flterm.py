@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/env python3
 
 # This file is Copyright (c) 2015-2020 M-Labs Limited.
 # License: BSD
