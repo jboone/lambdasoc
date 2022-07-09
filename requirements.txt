@@ -2,7 +2,7 @@ git+https://github.com/amaranth-lang/amaranth
 git+https://github.com/amaranth-lang/amaranth-soc
 git+https://github.com/amaranth-lang/amaranth-stdio
 git+https://github.com/amaranth-lang/amaranth-boards
-git+https://github.com/lambdaconcept/minerva
+git+https://github.com/jboone/minerva@5c0b8b95fb89ef147258d7fb503501488b791388
 git+https://github.com/m-labs/asyncserial
 
 #git+https://github.com/m-labs/migen@3ffd64c9b47619bd6689b44f29a8ed7c74365f14
